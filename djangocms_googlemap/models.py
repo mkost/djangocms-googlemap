@@ -48,6 +48,10 @@ class GoogleMap(CMSPlugin):
         _('height'), max_length=6, default='400px',
         help_text=_('Plugin height (in pixels).'))
 
+    marker = models.ImageField(
+        upload_to='images/', blank=True
+    )
+
     info_window = models.BooleanField(
         _('info window'), default=True,
         help_text=_('Show textbox over marker'))

@@ -46,7 +46,10 @@ function initializeMap{{ object.pk}}() {
         var marker = new google.maps.Marker({
           'position': options.center,
           'map': map,
-          'title': title
+          'title': title,
+          {% if object.marker %}
+            'icon': {{ object.marker }},
+          {% endif %}
         });
         {% if object.info_window %}
         // prepare info window
