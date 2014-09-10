@@ -48,7 +48,7 @@ function initializeMap{{ object.pk}}() {
           'map': map,
           'title': title,
           {% if object.marker %}
-            'icon': {{ object.marker }},
+            'icon': {{ object.marker.url }},
           {% endif %}
         });
         {% if object.info_window %}
