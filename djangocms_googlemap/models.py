@@ -49,7 +49,7 @@ class GoogleMap(CMSPlugin):
         help_text=_('Plugin height (in pixels).'))
 
     marker = models.ImageField(
-        upload_to='images/', blank=True
+        upload_to='images/', null=True, blank=True
     )
 
     info_window = models.BooleanField(
