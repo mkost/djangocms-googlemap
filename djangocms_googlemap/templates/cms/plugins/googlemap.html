@@ -1,6 +1,7 @@
-{% load i18n sekizai_tags %}
+{% load i18n sekizai_tags load l10n %}
 
 {% addtoblock "js" %}
+{% localize off %}
   <script type="text/javascript">
 function initializeMap{{ object.pk}}() {
       // save settings form plugin
@@ -66,14 +67,16 @@ function initializeMap{{ object.pk}}() {
       }
     };
   </script>
+  {% endlocalize %}
 {% endaddtoblock %}
 
 {% addtoblock "js" %}
-<script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?v=3&amp;sensor=true&amp;callback=initializeMap{{ object.pk }}"></script>
+<script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?v=3&amp;sensor=true&amp;callback=initializeMap{{ object.pk|unlocalize }}"></script>
 {% endaddtoblock %}
 
 
 
+{% localize off %}
 <div class="plugin_googlemap">
   {% if object.get_title %}<h2>{{ object.get_title }}</h2>{% endif %}
 
@@ -94,3 +97,4 @@ function initializeMap{{ object.pk}}() {
     </form>
   {% endif %}
 </div>
+{% endlocalize %}
